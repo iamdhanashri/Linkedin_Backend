@@ -11,15 +11,16 @@ const app=express()
 app.use(express.json())
 app.use(cors())
 
+app.get("/",(req,res)=>{
+    res.send("Home Page")
+})
+
 app.use("/users",UserRoute)
 app.use(authenticate)
 app.use("/posts",PostRoute)
 
 
 
-app.get("/",(req,res)=>{
-    res.send("Home Page")
-})
 
 
 app.listen(8080,async()=>{
